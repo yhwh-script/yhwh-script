@@ -40,33 +40,38 @@ Running yhwh-script is as easy as cloning a repository.
   cd sqlite-examples
   npm install
 ```
+
+OR you can use
+
+```bash
+  npx @yhwh-script/create-app {your_project}
+  cd {your_project}
+  npm install
+```
+
 and then
 
 ```bash
   npm run dev
 ```
 
-You can then access the app via https://localhost:5173 in your browser.
-
-OR you can use
-
-```npx @yhwh-script/create-app {your_project}```
-
 to quickly setup a yhwh-script project. (There is no Vite template support yet, but hopefully they will reach out to me.)
+
+You can then access the app via https://localhost:3443 in your browser.
 
 ## Creating
 
-Have you ever thought about creating standard SingleFile-WebComponents in dedicated HTML-files? Now it's possible to use ```script```, ```style``` and ```template``` fragments and load them dynamically.
+Have you ever thought about creating standards-conforming WebComponents in dedicated HTML-files? Now it's possible to use ```script```, ```style``` and ```template``` fragments and load them dynamically.
 
 ![Preview](https://raw.githubusercontent.com/yhwh-script/elements/main/docs/SFC.png)
 
 That's basically everything. **Happy coding!**
 
-[Examples](https://github.com/yhwh-script/examples/tree/main/) without and with [SQLite support](https://github.com/yhwh-script/sqlite-examples/tree/main/) can be found in the corresponding project. It is recommended to use SQLite examples for demonstration purposes and if you need local-persistent state!
+[Examples](https://github.com/yhwh-script/examples/tree/main/) without and [with SQLite support](https://github.com/yhwh-script/sqlite-examples/tree/main/) can be found in the corresponding sub-project. It is recommended to use SQLite examples for demonstration purposes and if you need local-persistent state!
 
 ## API description and restrictions
 
-Here are some further guidelines. You can use the following pre-defined constants in a SFC. You have access to the following functions:
+Here are some further features You can use in a .html file
 
 - use dynamic ```await import``` to include your own modules
 - ```shadowDocument``` is the private scope DOM of the SFC to access inner-component elements. You can use most methods that are also available on the default ```document``` DOM, for instance ```shadowDocument.getElementById(...)``` or  ```shadowDocument.querySelector(...)```. (Yes, you can also add syntactic sugar and define your own shorthand versions of access methods like
@@ -75,11 +80,12 @@ Here are some further guidelines. You can use the following pre-defined constant
 const $ = (query) => shadowDocument.querySelector(query);
 const $$ = (query) => shadowDocument.querySelectorAll(query);
 ```
+
 but by default they are now removed from the latest release.
 
 ## Component Lifecycle
 
-In case you want some deeper insights: This lifecycle-graph should help you understand how the ![WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working:
+In case you want some deeper insights you should learn and understand how the ![WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
 
 ![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/main/docs/components-lifecycle.png)
 
