@@ -89,20 +89,20 @@ In case you want some deeper insights you should learn and understand how the ![
 
 ![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/main/docs/components-lifecycle.png)
 
-1. prefetch html components in [index.html](https://github.com/ProphetsAI/jsonly/blob/main/index.html)
-2. declare your custom elements in the [./elements/index.js](https://github.com/yhwh-scrip/yhwh-script/blob/main/elements/index.js) (this happens automatically when you run ```npm run dev```)
-3. After having created your custom elements you can instantiate them programmatically or by tag-name like in the [animals-view.html](https://github.com/yhwh-script/examples/blob/main/elements/animals/animals-view.html) (Check out [the other examples](https://github.com/yhwh-script/examples/blob/main/elements/) to see variations.)
-4. changing the state of a component is possible via the event bubbling from inside or by changing the attribute ```data-state``` of the host element.
+1. You can ```prefetch``` html components in [index.html](https://github.com/yhwh-script/elements/blob/main/index.html)
+2. declare your custom elements in the [./elements/index.js](https://github.com/yhwh-script/blob/main/elements/) (this happens automatically when you run ```npm run dev```)
+4. After having created your custom elements you can instantiate them programmatically or by tag-name like in the [animals-view.html](https://github.com/yhwh-script/examples/blob/main/elements/animals/animals-view.html) (Check out [the other examples](https://github.com/yhwh-script/examples/blob/main/elements/) to see variations.)
+5. changing the state of a component is possible via bubbling events from inside and by changing the ```data-state``` attribute of the host element.
 
 ## Adding a navigation 
 
-Adding a navigation is very easy. You can have [an entire navigation in one single html file](https://github.com/yhwh-script/sqlite-examples/blob/main/elements/home/home-navigation.html) defined as just another component. After having it integrated into your app
+Adding a navigation is very easy. [As the example shows](https://github.com/yhwh-script/sqlite-examples/blob/main/elements/home/home-navigation.html) You can have an entire navigation in one single html file defined as just another SFC. After having it integrated into your app
 
 ![nav integration](https://raw.githubusercontent.com/yhwh-script/examples/main/docs/nav-component.png)
 
 it could look like this:
 
-![Navigation example](https://raw.githubusercontent.com/yhwh-script/yhwh-script/main/docs/nav.png)
+![Navigation example](https://raw.githubusercontent.com/yhwh-script/main/docs/nav.png)
 
 Of course you are completely free to customize the themes and make them awesome!
 
