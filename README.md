@@ -85,12 +85,12 @@ but by default they are now removed from the latest release.
 
 ## Component Lifecycle
 
-In case you want some deeper insights you should learn and understand how the ![WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
+In case you want some deeper insights you should learn and understand how the [WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
 
 ![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/customElements-lifecycle.png)
 
 1. You can ```prefetch``` html components in [index.html](https://github.com/yhwh-script/elements/blob/main/index.html)
-2. declare your custom elements in the [./elements/](https://github.com/yhwh-script/blob/main/elements/) folder (index.js is automagically filled when you run ```npm run dev```)
+2. declare your custom elements in the [./elements/](https://github.com/yhwh-script/elements/tree/main/elements) folder (index.js is automagically filled when you run ```npm run dev```)
 4. After having created your custom elements you can instantiate them programmatically or by tag-name like in the [animals-view.html](https://github.com/yhwh-script/examples/blob/main/elements/animals/animals-view.html) (Check out [the other examples](https://github.com/yhwh-script/examples/blob/main/elements/) to see variations.)
 5. changing the state of a component is possible via bubbling events from inside and by changing the ```data-state``` attribute of the host element.
 
