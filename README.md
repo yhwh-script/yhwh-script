@@ -88,7 +88,7 @@ but by default they are now removed from the latest release.
 
 In case you want some deeper insights you should learn and understand how the [WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
 
-![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/customElements-lifecycle.png)
+![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/excalidraw_customElements-lifecycle.png)
 
 1. You can ```prefetch``` html components in [index.html](https://github.com/yhwh-script/elements/blob/main/index.html)
 2. declare your custom elements in the [./elements/](https://github.com/yhwh-script/elements/tree/main/elements) folder (index.js is automagically filled when you run ```npm run dev```)
