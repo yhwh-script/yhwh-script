@@ -74,6 +74,7 @@ That's basically everything. **Happy coding!**
 Here are some further features You can use in a .html file
 
 - use dynamic ```await import``` to include your own modules
+- access to the ```data-state``` attribute via the ```state``` constant (to propagate data into the component)
 - ```shadowDocument``` is the private scope DOM of the SFC to access inner-component elements. You can use most methods that are also available on the default ```document``` DOM, for instance ```shadowDocument.getElementById(...)``` or  ```shadowDocument.querySelector(...)```. (Yes, you can also add syntactic sugar and define your own shorthand versions of access methods like
 
 ```
