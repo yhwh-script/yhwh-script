@@ -63,7 +63,7 @@ You can then access the app via https://localhost:3443 in your browser.
 
 Have you ever thought about creating standards-conforming WebComponents in dedicated HTML-files? Now it's possible to use ```script```, ```style``` and ```template``` fragments and load them dynamically.
 
-![Preview](https://raw.githubusercontent.com/yhwh-script/elements/main/docs/SFC.png)
+![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/animals-li.png)
 
 That's basically everything. **Happy coding!**
 
@@ -87,22 +87,16 @@ but by default they are now removed from the latest release.
 
 In case you want some deeper insights you should learn and understand how the ![WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
 
-![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/main/docs/components-lifecycle.png)
+![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/customElements-lifecycle.png)
 
 1. You can ```prefetch``` html components in [index.html](https://github.com/yhwh-script/elements/blob/main/index.html)
-2. declare your custom elements in the [./elements/index.js](https://github.com/yhwh-script/blob/main/elements/) (this happens automatically when you run ```npm run dev```)
+2. declare your custom elements in the [./elements/](https://github.com/yhwh-script/blob/main/elements/) folder (index.js is automagically filled when you run ```npm run dev```)
 4. After having created your custom elements you can instantiate them programmatically or by tag-name like in the [animals-view.html](https://github.com/yhwh-script/examples/blob/main/elements/animals/animals-view.html) (Check out [the other examples](https://github.com/yhwh-script/examples/blob/main/elements/) to see variations.)
 5. changing the state of a component is possible via bubbling events from inside and by changing the ```data-state``` attribute of the host element.
 
 ## Adding a navigation 
 
-Adding a navigation is very easy. [As the example shows](https://github.com/yhwh-script/sqlite-examples/blob/main/elements/home/home-navigation.html) You can have an entire navigation in one single html file defined as just another SFC. After having it integrated into your app
-
-![nav integration](https://raw.githubusercontent.com/yhwh-script/examples/main/docs/nav-component.png)
-
-it could look like this:
-
-![Navigation example](https://raw.githubusercontent.com/yhwh-script/main/docs/nav.png)
+Adding a navigation is very easy. [As the example shows](https://github.com/yhwh-script/sqlite-examples/blob/main/elements/home/home-navigation.html) You can have an entire navigation in one single html file defined as just another SFC. After having it integrated into your app with a single tag, you can have routing support and all the things you would expect.
 
 Of course you are completely free to customize the themes and make them awesome!
 
