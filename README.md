@@ -4,7 +4,7 @@
 
 With YHWH-Script ( pronounced: /jɑːhwe/-script) your web app can become whatever you want it to become. There is nothing so complicated that it can't be made simple. yhwh-script is an advanced, yet minimalistic WebComponents framework featuring most of the functionality of popular JavaScript frameworks, but in a fraction of their complexity and therefore minimizing the effort of refactoring your code. It is written in vanilla JavaScript and you can freely customize it to fit your needs.
 
-yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> support within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
+yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> support within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system). It is ready for Event-Driven-Process Planning, Executing and Monitoring. Check if you want to see more.
 
 [The Unclicense](https://choosealicense.com/licenses/unlicense/)
 
