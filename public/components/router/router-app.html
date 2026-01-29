@@ -1,0 +1,69 @@
+<template>
+    <router-hamburger></router-hamburger>
+    <router-nav></router-nav>
+    <behind-menu></behind-menu>
+    <main></main>
+</template>
+
+<script>
+    (function patchPushStateIIFE(history) {
+        const pushStateOriginal = history.pushState;
+        history.pushState = function patchedPushState(state, unused, url) {
+            pushStateOriginal.call(history, state, unused, url);
+            dispatchEvent(new Event('pushstate'));
+        };
+    })(window.history);
+
+    let _sitemap = [[
+        { "/": { "title": "Home", "template": "sqlite-control" } }
+    ],
+    [
+        { "/sqlite": { "title": "SQLite", "template": "sqlite-control" } },
+        { "/opfs": { "title": "OPFS", "template": "opfs-admin" } },
+        { "/dragndrop": { "title": "DragnDrop", "template": "dragndrop-container" } }
+    ]];
+
+    function getMapping(pathname) {
+        let errorMapping = { "title": "404", "template": "error-404" };
+        let resources = pathname.split("/");
+        let mapping;
+        if (resources[1]) { // URL is no single slash /, which would be only resources[0]
+            for (let route of _sitemap[resources.length - 1]) {
+                if (route[pathname]) { mapping = route[pathname]; }
+            }
+            if (!mapping) { mapping = errorMapping; }
+        } else { mapping = _sitemap[0][0][pathname] }
+        if (!customElements.get(mapping.template)) { return errorMapping; }
+        return mapping;
+    }
+
+    const hamburger = shadowDocument.querySelector("router-hamburger");
+    const nav = shadowDocument.querySelector("router-nav");
+    eventbux.addEventListener("router:toggle-nav", function toggleNav(e) {
+        hamburger.classList.toggle("open");
+        nav.classList.toggle("open");
+    });
+    
+    const main = shadowDocument.querySelector("main");
+    function loadContent(e) {
+        let mapping = getMapping(location.pathname);
+        main.replaceChildren(document.createElement(mapping.template));
+    }
+
+    loadContent();
+
+    addEventListener("popstate", loadContent);
+    addEventListener("pushstate", loadContent);
+
+    eventbux.addEventListener("router:push", function pushStateForMapping(e) {
+        let pathname = e.detail;
+        let mapping = getMapping(pathname);
+        history.pushState(mapping.template, mapping.title, pathname);
+    })
+
+    // workaround to access at least the first routing level when url entered into browser's address bar 
+    const resources = (location.pathname).split("/");
+    if (resources.length > 2) { push(resources.slice(0, 2).join("/")); }
+</script>
+
+<style></style>

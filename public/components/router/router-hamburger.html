@@ -1,0 +1,73 @@
+<template>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</template>
+<script>
+    const hamburger = shadowDocument.host;
+    hamburger.addEventListener("click", function onHamburgerClicked(e) {
+        e.preventDefault();
+        eventbux.dispatchEvent(new CustomEvent("router:toggle-nav"));
+    });
+</script>
+<style>
+    :host {
+        cursor: pointer;
+        display: flex;
+        flex-flow: column nowrap;
+        font-size: .5em;
+        height: 70px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition:
+            font-size .2s ease-in-out;
+        z-index: 2;
+        width: 70px;
+        transition: font-size .2s;
+    }
+
+    :host(:hover) {
+        font-size: 2em;
+    }
+
+    /* #hamburger {
+        bottom: auto;
+        float: right;
+    } */
+
+    :host(:hover) .bar {
+        box-shadow: 0px 0px 10px #144000;
+    }
+
+    :host(:hover.open) .bar {
+        box-shadow: 0px 0px 10px #ffd700;
+    }
+
+    :host(.open) .bar {
+        background-color: var(--light);
+    }
+
+    :host(.open) .bar:nth-child(1) {
+        transform: translate(0, 0.7em) rotate(-45deg);
+    }
+
+    :host(.open) .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    :host(.open) .bar:nth-child(3) {
+        transform: translate(0, -0.7em) rotate(45deg);
+    }
+
+    /* defaults */
+    .bar {
+        transition:
+            transform .2s ease-in-out,
+            opacity .2s ease-in-out;
+        background-color: var(--dark);
+        width: 2.5em;
+        height: .3em;
+        margin: .375em 0;
+    }
+</style>

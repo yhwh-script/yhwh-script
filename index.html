@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
+  <link rel="stylesheet" href="./assets/w3.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yhwh-script</title>
+</head>
+
+<body></body>
+
+<script type="module">
+  Promise.all([
+    import('@yhwh-script/event-bux'),
+    import('@yhwh-script/sqlite')
+  ]).then((importedModules) => {
+    importedModules.forEach((module) => {
+      if (!module.name) {
+        throw new Error('Missing name in imported module.');
+      }
+      window[module.name] = module;
+    });
+    return import('@yhwh-script/shadow-h4x');
+  }).finally(() => {
+    // boot children in a valid environment :)
+    const root = document.getElementsByTagName('body')[0];
+    root.innerHTML = '<router-app></router-app>';
+  });
+</script>
+
+</html>
