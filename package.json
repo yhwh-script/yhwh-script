@@ -7,7 +7,7 @@
   "dependencies": {
     "@yhwh-script/event-bux": "^1.0.6",
     "@yhwh-script/shadow-h4x": "^1.0.8",
-    "@yhwh-script/sqlite": "^2.0.1"
+    "@yhwh-script/sqlite": "^2.0.2"
   },
   "license": "Unlicense",
   "scripts": {
