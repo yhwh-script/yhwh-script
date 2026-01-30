@@ -34,9 +34,9 @@ This is free and unencumbered software released into the public domain. [The Unc
 You need to have <a title="NodeJS" href="https://nodejs.org"><img height="20" alt="NodeJS-logo" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></a> installed.
 
 yhwh-script is build of
-https://github.com/yhwh-script/event-bux
-https://github.com/yhwh-script/shadow-h4x
-https://github.com/yhwh-script/sqlite
+[event-bux](https://github.com/yhwh-script/event-bux),
+[shadow-h4x](https://github.com/yhwh-script/shadow-h4x)
+[sqlite](https://github.com/yhwh-script/sqlite).
 
 ### Running 
 
@@ -64,7 +64,9 @@ It is recommended to use the SQLite database for demonstration purposes and if y
 
 Here are some further features You can use in a .html file
 
-- ```shadowDocument``` is the private scope DOM of the element. You can use most methods that are also available on the ```document```, for instance ```shadowDocument.getElementById(...)``` or  ```shadowDocument.querySelector(...)```.
+- ```shadowDocument``` is the private scope DOM of each of your custom elements. You can use most methods that are also available on the ```document```, for instance ```shadowDocument.getElementById(...)``` or  ```shadowDocument.querySelector(...)```.
+- ```createDB, downloadDB, executeQuery``` are just some functions from the sqlite module.
+- ```addEventListener, dispatchEvent``` are available on the EventBus. 
 
 ## Component Lifecycle
 
