@@ -77,7 +77,7 @@ In case you want some deeper insights you should learn and understand how the [W
 
 ## Adding a navigation 
 
-Adding a router navigation is very easy. [As the example shows](https://github.com/yhwh-script/yhwh-script/public/components/router/router-app.html) You can have an entire navigation in one single html file defined as just another custom element. After having it integrated into your app with a single tag (`<router-nav></router-nav>`), you can have routing support and all the things you would expect.
+Adding a router navigation is very easy. [As the example shows](https://github.com/yhwh-script/yhwh-script/blob/main/public/components/router/router-app.html) You can have an entire navigation in one single html file defined as just another custom element. After having it integrated into your app with a single tag (`<router-nav></router-nav>`), you can have routing support and all the things you would expect.
 
 Of course you are completely free to customize the themes, modules and components and make them whatever you want them to become!
 
