@@ -18,10 +18,9 @@ This is free and unencumbered software released into the public domain. [The Unc
 - direct access to ShadowDOM in each component's script (via `shadowDocument`)
 - direct access to each module (via its `{moduleName}`)
 - Event-Bus!!!!
-- SQLite WebAssembly (WASM) for global state management with OriginPrivateFileSystem (OPFS), your data stays private
+- local first SQLite database for global state management with OriginPrivateFileSystem (OPFS), your data stays truly private
 - dedicated workers for database pooling
-- [Responding to attribute changes](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes)
-- offline capabilities, local first (TODO)
+- offline capabilities
 - history-driven sitemap router [navigation module](https://github.com/yhwh-script/yhwh-script/blob/main/public/components/router/router-app.html)
 - support for containerized builds
 - https support out of the box ([@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl))
