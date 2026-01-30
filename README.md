@@ -6,9 +6,9 @@ With YHWH-Script ( pronounced: /jɑːhwe/-script) your web app can become whatev
 
 I kid You not: yhwh-script is an advanced, yet minimalistic WebComponents framework featuring most of the functionality of popular JavaScript frameworks, but in a fraction of their complexity. It is written in vanilla JavaScript.
 
-yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> support within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
+yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> database within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
 
-[The Unclicense](https://choosealicense.com/licenses/unlicense/)
+This is free and unencumbered software released into the public domain. [The Unclicense](https://choosealicense.com/licenses/unlicense/)
 
 ## Features
 
@@ -17,12 +17,12 @@ yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img he
 - following [W3C standards and MDN-recommended best practices](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) with just a few hacks to accomplish things where people claim: *"This is impossible with WebComponents"*
 - direct access to ShadowDOM in each component's script (via `shadowDocument`)
 - direct access to each module (via its `{moduleName}`)
-
+- Event-Bus!!!!
 - SQLite WebAssembly (WASM) for global state management with OriginPrivateFileSystem (OPFS), your data stays private
 - dedicated workers for database pooling
 - [Responding to attribute changes](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#responding_to_attribute_changes)
-- offline capabilities
-- history-driven sitemap router [navigation module](https://github.com/yhwh-script/examples/blob/main/public/elements/router/router-app.html)
+- offline capabilities, local first (TODO)
+- history-driven sitemap router [navigation module](https://github.com/yhwh-script/yhwh-script/blob/main/public/components/router/router-app.html)
 - support for containerized builds
 - https support out of the box ([@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl))
 - basic functionality in under <100LOC
@@ -33,33 +33,32 @@ yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img he
 
 You need to have <a title="NodeJS" href="https://nodejs.org"><img height="20" alt="NodeJS-logo" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></a> installed.
 
+yhwh-script is build of
+https://github.com/yhwh-script/event-bux
+https://github.com/yhwh-script/shadow-h4x
+https://github.com/yhwh-script/sqlite
+
 ### Running 
 
 Running yhwh-script is as easy as cloning one of the repositories below.
 ```bash
-  git clone https://github.com/yhwh-script/sqlite-examples.git
-  cd sqlite-examples
-  npm install
-```
-OR you can use npx, which is the recommended way
-```bash
-  npx @yhwh-script/create-app {your_project}
-  cd {your_project}
+  git clone https://github.com/yhwh-script/yhwh-script.git
+  cd yhwh-script
   npm install
 ```
 and then simply 
 ```bash
   npm run dev
 ```
-to quickly setup a yhwh-script project. You can then access the app via https://localhost:3443 in your browser.
+to quickly setup a yhwh-script project. You can then access the app via https://localhost:5713 in your browser.
 
 ## Creating
 
-Have you ever thought about creating WebComponents in dedicated HTML-files? Just create your custom elements inside the `public/elements` folder. You just have to stick to (custom elements naming conventions)[https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name]. They will work out of the box as HTML, (S)CSS and JavaScript custom elements with ```script```, ```style``` and ```template``` fragments à la Vue or Svelte.
+Have you ever thought about creating WebComponents in dedicated HTML-files? Just create your custom elements inside the `public/components` folder. You just have to stick to (custom elements naming conventions)[https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name]. At this moment, only two-fold component names are supported. They will work out of the box as HTML, (S)CSS and JavaScript custom elements with ```script```, ```style``` and ```template``` fragments à la Vue or Svelte.
 
 That's basically everything. **Happy coding!**
 
-[Examples](https://github.com/yhwh-script/examples) without and [with SQLite support](https://github.com/yhwh-script/sqlite-examples) can be found in the corresponding sub-projects. It is recommended to use SQLite examples for demonstration purposes and if you need local-persistent state!
+It is recommended to use the SQLite database for demonstration purposes and if you need local-persistent state!
 
 ## API description and restrictions
 
@@ -71,14 +70,12 @@ Here are some further features You can use in a .html file
 
 In case you want some deeper insights you should learn and understand how the [WebComponents lifecycle](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks) is working.
 
-![Preview](https://raw.githubusercontent.com/yhwh-script/yhwh-script/refs/heads/main/docs/excalidraw_customElements-lifecycle.png)
-
-1. Put your custom elements in the [./public/elements/](https://github.com/yhwh-script/sqlite-examples/public/elements) folder (/src/elements/elements.js is automagically generated when you run ```npm run dev```)
-2. After having created your custom elements you can instantiate them programmatically or by tag-name like in the [animals-view.html](https://github.com/yhwh-script/examples/public/elements/animals/animals-view.html) (Check out [the other examples](https://github.com/yhwh-script/examples/public/elements/) to see variations.)
+1. Put your custom elements in the [./public/components/](https://github.com/yhwh-script/yhwh-script/public/components) folder (/src/components/index.js is automagically generated when you run ```npm run dev```)
+2. After having created your custom elements you can instantiate them immediately. Please consider importing them like in the [index.html](https://github.com/yhwh-script/yhwh-script/blob/main/index.html#L15).
 
 ## Adding a navigation 
 
-Adding a navigation is very easy. [As the example shows](https://github.com/yhwh-script/sqlite-examples/public/elements/home/home-navigation.html) You can have an entire navigation in one single html file defined as just another custom element. After having it integrated into your app with a single tag (``<home-navigation></home-navigation>), you can have routing support and all the things you would expect.
+Adding a router navigation is very easy. [As the example shows](https://github.com/yhwh-script/yhwh-script/public/components/router/router-app.html) You can have an entire navigation in one single html file defined as just another custom element. After having it integrated into your app with a single tag (`<router-nav></router-nav>`), you can have routing support and all the things you would expect.
 
 Of course you are completely free to customize the themes, modules and components and make them whatever you want them to become!
 
