@@ -50,7 +50,7 @@ and then simply
   npm run build
   npm run preview
 ```
-to quickly setup a yhwh-script project. You can then access the app via https://localhost:5713 in your browser.
+to quickly setup a yhwh-script project. You can then access the app via https://localhost:4173 in your browser.
 
 ## Creating
 
