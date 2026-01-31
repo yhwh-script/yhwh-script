@@ -1,12 +1,13 @@
 <template>
     <nav>
         <ul>
-            <li><a href="/sqlite">SQLite</a></li>
-            <li><a href="/opfs">OPFS</a></li>
-            <li><a href="/dragndrop">Drag'n Drop Demo</a></li>
+            <li><a href="/plan">Plan</a></li>
+            <li><a href="/execute">Execute</a></li>
+            <li><a href="/monitor">Monitor</a></li>
         </ul>
     </nav>
 </template>
+
 <script>
     const nav = shadowDocument.querySelector("nav");
     nav.style.setProperty("--dynamic-height", `${Math.ceil(nav.getBoundingClientRect().height)}px`);
@@ -35,6 +36,7 @@
             }
         }
     }
+
     activate();
     addEventListener("popstate", activate);
     addEventListener("pushstate", activate);

@@ -15,14 +15,14 @@
   Promise.all([
     import('@yhwh-script/event-bux'),
     import('@yhwh-script/sqlite')
-  ]).then((importedModules) => {
+  ]).then(async (importedModules) => {
     importedModules.forEach((module) => {
       if (!module.name) {
         throw new Error('Missing name in imported module.');
       }
       window[module.name] = module;
     });
-    return import('@yhwh-script/shadow-h4x');
+    return await import('@yhwh-script/shadow-h4x');
   }).finally(() => {
     // boot children in a valid environment :)
     const root = document.getElementsByTagName('body')[0];

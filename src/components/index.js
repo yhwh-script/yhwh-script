@@ -1,5 +1,8 @@
 export const htmlFiles=[
   "components/error/error-404.html",
+  "components/project/project-execute.html",
+  "components/project/project-monitor.html",
+  "components/project/project-plan.html",
   "components/router/router-app.html",
   "components/router/router-hamburger.html",
   "components/router/router-nav.html",

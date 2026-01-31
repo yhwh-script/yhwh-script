@@ -8,7 +8,7 @@ I kid You not: yhwh-script is an advanced, yet minimalistic WebComponents framew
 
 yhwh-script is solely built on <a title="Vite" href="https://vitejs.dev"><img height="20" alt="Vitejs-logo" src="https://vitejs.dev/logo.svg"></a> and has an optional <a title="SQLite" href="https://sqlite.org/wasm"><img height="20" alt="SQLite-logo" src="https://sqlite.org/images/sqlite370_banner.gif"></a> database within the [Origin Private Filesystem (OPFS)](https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system).
 
-This is free and unencumbered software released into the public domain. [The Unclicense](https://choosealicense.com/licenses/unlicense/)
+This is free and unencumbered software released into the public domain. [The Unlicense](https://choosealicense.com/licenses/unlicense/)
 
 ## Features
 
