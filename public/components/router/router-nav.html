@@ -10,7 +10,6 @@
 
 <script>
     const nav = shadowDocument.querySelector("nav");
-    nav.style.setProperty("--dynamic-height", `${Math.ceil(nav.getBoundingClientRect().height)}px`);
 
     const links = shadowDocument.querySelectorAll("li");
     function onClick(e) {
@@ -44,7 +43,6 @@
 
 <style>
     :host(.open) nav {
-        height: var(--dynamic-height);
         transform: translateY(0);
     }
 
@@ -114,12 +112,12 @@
 
                     a {
                         opacity: 1 !important;
-                        color: var(--dark);
+                        color: #144000;
                     }
                 }
 
                 a {
-                    color: var(--light);
+                    color: #fdd770;
                     text-decoration: none;
                     font-weight: bold;
                     align-self: center;
@@ -146,7 +144,7 @@
                     }
 
                     a {
-                        color: var(--dark);
+                        color: #144000;
                     }
                 }
             }

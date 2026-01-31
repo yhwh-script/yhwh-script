@@ -1,7 +1,9 @@
 <template>
-    <div class="bar"></div>
-    <div class="bar"></div>
-    <div class="bar"></div>
+    <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 </template>
 <script>
     const hamburger = shadowDocument.host;
@@ -13,28 +15,38 @@
 <style>
     :host {
         cursor: pointer;
-        display: flex;
-        flex-flow: column nowrap;
-        font-size: .5em;
         height: 70px;
         position: fixed;
         right: 0;
         top: 0;
-        transition:
-            font-size .2s ease-in-out;
-        z-index: 2;
         width: 70px;
-        transition: font-size .2s;
+        z-index: 2;
     }
 
-    :host(:hover) {
+    .hamburger {
+        display: inline-block;
+        font-size: .5em;
+        height: 20px;
+        position: inherit;
+        right: inherit;
+        top: inherit;
+        width: 20px;
+
+        .bar {
+            background-color: #144000;
+            height: .3em;
+            margin: .375em 0;
+            transition: font-size .2s, width .2s, height .2s;
+            width: 2.5em;
+        }
+    }
+
+    :host(:hover) .hamburger {
+        height: 70px;
         font-size: 2em;
+        transition: font-size .2s, width .2s, height .2s;
+        width: 70px;
     }
-
-    /* #hamburger {
-        bottom: auto;
-        float: right;
-    } */
 
     :host(:hover) .bar {
         box-shadow: 0px 0px 10px #144000;
@@ -45,7 +57,7 @@
     }
 
     :host(.open) .bar {
-        background-color: var(--light);
+        background-color: #ffd700;
     }
 
     :host(.open) .bar:nth-child(1) {
@@ -58,16 +70,5 @@
 
     :host(.open) .bar:nth-child(3) {
         transform: translate(0, -0.7em) rotate(45deg);
-    }
-
-    /* defaults */
-    .bar {
-        transition:
-            transform .2s ease-in-out,
-            opacity .2s ease-in-out;
-        background-color: var(--dark);
-        width: 2.5em;
-        height: .3em;
-        margin: .375em 0;
     }
 </style>

@@ -13,7 +13,7 @@
   "scripts": {
     "dev": "npm run generate && vite",
     "build": "npm run generate && vite build",
-    "preview": "vite preview",
+    "preview": "npm run build && vite preview",
     "generate": "node node_modules/@yhwh-script/shadow-h4x/generate.cjs"
   },
   "type": "module",
