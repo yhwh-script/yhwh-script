@@ -16,6 +16,7 @@
     :host {
         cursor: pointer;
         height: 70px;
+        overflow: visible;
         position: fixed;
         right: 0;
         top: 0;
@@ -28,22 +29,22 @@
         font-size: .5em;
         height: 20px;
         position: inherit;
-        right: inherit;
-        top: inherit;
+        right: 0;
+        top: 0;
+        transition: font-size .2s, width .2s, height .2s;
         width: 20px;
 
         .bar {
             background-color: #144000;
             height: .3em;
             margin: .375em 0;
-            transition: font-size .2s, width .2s, height .2s;
             width: 2.5em;
         }
     }
 
     :host(:hover) .hamburger {
-        height: 70px;
         font-size: 2em;
+        height: 70px;
         transition: font-size .2s, width .2s, height .2s;
         width: 70px;
     }
