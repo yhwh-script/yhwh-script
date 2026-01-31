@@ -22,6 +22,7 @@
       window[module.name] = module;
     });
     return import('@yhwh-script/shadow-h4x');
+    // TODO fix! There might be some racecondition here in dev-mode. Use build & preview.
   }).finally(() => {
     // boot children in a valid environment :)
     const root = document.getElementsByTagName('body')[0];
