@@ -12,19 +12,19 @@
     const templatesBtn = shadowDocument.querySelector("#templatesBtn");
     const rulesBtn = shadowDocument.querySelector("#rulesBtn");
     const tab = shadowDocument.querySelector("#tab");
-    let planTemplate = document.createElement("plan-templates"); // should be reused
+    let planTemplates = document.createElement("plan-templates"); // should be reused
     let planRules = document.createElement("plan-rules"); // should be reused
 
     function toggleTab(e) {
-        console.log("Fired on bus", e);
         switch (e.detail.tab) {
             case "templates":
-                if (templatesBtn.classList.contains("active")) {
+                if (templatesBtn.classList.contains("active")) { // already active
                     templatesBtn.classList.remove("active");
-                } else {
-                    rulesBtn.classList.remove("active");
+                    tab.replaceChildren(); // remove all
+                } else { // 
+                    rulesBtn.classList.remove("active"); // for sure
                     templatesBtn.classList.add("active");
-                    tab.replaceChildren(planTemplate);
+                    tab.replaceChildren(planTemplates); // render planTemplates
                 }
                 break;
             case "rules":
