@@ -15,13 +15,13 @@
     })(window.history);
 
     let _sitemap = [
-    [
-        { "/": { "title": "Home", "template": "sqlite-control" } }
-    ],[
-        { "/plan": { "title": "Plan", "template": "project-plan" } },
-        { "/execute": { "title": "Execute", "template": "project-execute" } },
-        { "/monitor": { "title": "Monitor", "template": "project-monitor" } }
-    ]];
+        [
+            { "/": { "title": "Home", "template": "sqlite-control" } }
+        ], [
+            { "/plan": { "title": "Plan", "template": "project-plan" } },
+            { "/execute": { "title": "Execute", "template": "project-execute" } },
+            { "/monitor": { "title": "Monitor", "template": "project-monitor" } }
+        ]];
 
     function getMapping(pathname) {
         let errorMapping = { "title": "404", "template": "error-404" };
@@ -39,12 +39,14 @@
 
     const hamburger = shadowDocument.querySelector("router-hamburger");
     const nav = shadowDocument.querySelector("router-nav");
-    eventbux.addEventListener("router:toggle-nav", function toggleNav(e) {
+    const main = shadowDocument.querySelector("main");
+
+    hamburger.addEventListener("click", function onHamburgerClicked(e) {
+        e.preventDefault();
         hamburger.classList.toggle("open");
         nav.classList.toggle("open");
     });
     
-    const main = shadowDocument.querySelector("main");
     function loadContent(e) {
         let mapping = getMapping(location.pathname);
         main.replaceChildren(document.createElement(mapping.template));
@@ -55,7 +57,7 @@
     addEventListener("popstate", loadContent);
     addEventListener("pushstate", loadContent);
 
-    eventbux.addEventListener("router:push", function pushStateForMapping(e) {
+    eventbus.addEventListener("router:push", function pushStateForMapping(e) {
         let pathname = e.detail;
         let mapping = getMapping(pathname);
         history.pushState(mapping.template, mapping.title, pathname);

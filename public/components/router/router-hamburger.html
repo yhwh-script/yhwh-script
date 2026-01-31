@@ -5,13 +5,7 @@
         <div class="bar"></div>
     </div>
 </template>
-<script>
-    const hamburger = shadowDocument.host;
-    hamburger.addEventListener("click", function onHamburgerClicked(e) {
-        e.preventDefault();
-        eventbux.dispatchEvent(new CustomEvent("router:toggle-nav"));
-    });
-</script>
+
 <style>
     :host {
         cursor: pointer;
@@ -39,6 +33,7 @@
             height: .3em;
             margin: .375em 0;
             width: 2.5em;
+            transition: transform .2s;
         }
     }
 
@@ -59,6 +54,7 @@
 
     :host(.open) .bar {
         background-color: #ffd700;
+        transition: transform .2s;
     }
 
     :host(.open) .bar:nth-child(1) {

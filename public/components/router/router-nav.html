@@ -9,8 +9,6 @@
 </template>
 
 <script>
-    const nav = shadowDocument.querySelector("nav");
-
     const links = shadowDocument.querySelectorAll("li");
     function onClick(e) {
         e.preventDefault();
@@ -18,7 +16,7 @@
         let li = e.target.closest("li");
         let a = li.querySelector("a");
         let pathname = a.getAttribute("href");
-        eventbux.dispatchEvent(new CustomEvent("router:push", { detail: pathname }));
+        eventbus.dispatchEvent(new CustomEvent("router:push", { detail: pathname }));
     }
     links.forEach(li => {
         li.addEventListener("click", onClick);

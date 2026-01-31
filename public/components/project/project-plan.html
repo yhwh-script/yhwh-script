@@ -1,3 +1,53 @@
 <template>
-    <h2>Plan</h2>
+    <div class="tabs">
+        <button id="templatesBtn">Templates</button>
+        <button id="rulesBtn">Rules</button>
+    </div>
+    <div id="tab">
+        <p>Zum Planen bitte zuerst Fachereignisse unter Templates und dann Regeln unter Rules erstellen.</p>
+    </div>
 </template>
+
+<script>
+    const templatesBtn = shadowDocument.querySelector("#templatesBtn");
+    const rulesBtn = shadowDocument.querySelector("#rulesBtn");
+    const tab = shadowDocument.querySelector("#tab");
+    let planTemplate = document.createElement("plan-templates"); // should be reused
+    let planRules = document.createElement("plan-rules"); // should be reused
+
+    function toggleTab(e) {
+        console.log("Fired on bus", e);
+        switch (e.detail.tab) {
+            case "templates":
+                if (templatesBtn.classList.contains("active")) {
+                    templatesBtn.classList.remove("active");
+                } else {
+                    rulesBtn.classList.remove("active");
+                    templatesBtn.classList.add("active");
+                    tab.replaceChildren(planTemplate);
+                }
+                break;
+            case "rules":
+                if (rulesBtn.classList.contains("active")) {
+                    rulesBtn.classList.remove("active");
+                } else {
+                    templatesBtn.classList.remove("active");
+                    rulesBtn.classList.add("active");
+                    tab.replaceChildren(planRules);
+                }
+                break;
+            default:
+        }
+    }
+
+    eventbus.addEventListener("tabs:toggle-tab", toggleTab, shadowDocument.host);
+
+    templatesBtn.addEventListener("click", function templatesBtnClicked(e) {
+        e.preventDefault();
+        eventbus.dispatchEvent(new CustomEvent("tabs:toggle-tab", { detail: { tab: "templates", target: e.target } }), shadowDocument.host);
+    });
+    rulesBtn.addEventListener("click", function rulesBtnClicked(e) {
+        e.preventDefault();
+        eventbus.dispatchEvent(new CustomEvent("tabs:toggle-tab", { detail: { tab: "rules", target: e.target } }), shadowDocument.host);
+    });
+</script>
