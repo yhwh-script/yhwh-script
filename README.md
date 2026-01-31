@@ -47,7 +47,8 @@ Running yhwh-script is as easy as cloning one of the repositories below.
 ```
 and then simply 
 ```bash
-  npm run dev
+  npm run build
+  npm run preview
 ```
 to quickly setup a yhwh-script project. You can then access the app via https://localhost:5713 in your browser.
 
