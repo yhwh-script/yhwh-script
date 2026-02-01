@@ -12,7 +12,7 @@
 </template>
 
 <script>
-    (function patchPushStateIIFE(history) {
+    (function patchPushStateIIFE(history) { // to fire pushstate-Event on pushState
         const pushStateOriginal = history.pushState;
         history.pushState = function patchedPushState(state, unused, url) {
             pushStateOriginal.call(history, state, unused, url);
@@ -27,20 +27,26 @@
             { "/plan": { "title": "Plan", "template": "project-plan" } },
             { "/execute": { "title": "Execute", "template": "project-execute" } },
             { "/monitor": { "title": "Monitor", "template": "project-monitor" } }
-        ]];
+        ]
+    ];
 
     function getMapping(pathname) {
-        let errorMapping = { "title": "404", "template": "error-404" };
+        let errorMapping = { "title": "404", "template": "error-404" };  // default
+        let mapping = errorMapping;
         let resources = pathname.split("/");
-        let mapping;
-        if (resources[1]) { // URL is no single slash /, which would be only resources[0]
+        if (resources[1]) { // find URL in sitemap
             for (let route of _sitemap[resources.length - 1]) {
-                if (route[pathname]) { mapping = route[pathname]; }
+                if (route[pathname]) { mapping = route[pathname]; } // found
             }
-            if (!mapping) { mapping = errorMapping; }
-        } else { mapping = _sitemap[0][0][pathname] }
+        } else { mapping = _sitemap[0][0][pathname] } // single /
         if (!customElements.get(mapping.template)) { return errorMapping; }
         return mapping;
+    }
+
+    const main = shadowDocument.querySelector("main");
+    function loadContent(e) {
+        let mapping = getMapping(location.pathname);
+        main.replaceChildren(document.createElement(mapping.template));
     }
 
     function activate(e) {
@@ -53,18 +59,13 @@
         }
     }
 
-    const main = shadowDocument.querySelector("main");
-    function loadContent(e) {
-        let mapping = getMapping(location.pathname);
-        main.replaceChildren(document.createElement(mapping.template));
-    }
-
-    activate();
     loadContent();
-    addEventListener("popstate", activate);
-    addEventListener("pushstate", activate);
     addEventListener("popstate", loadContent);
     addEventListener("pushstate", loadContent);
+
+    activate();
+    addEventListener("popstate", activate);
+    addEventListener("pushstate", activate);
 
     const hamburger = shadowDocument.querySelector("router-hamburger");
     const nav = shadowDocument.querySelector("nav");
@@ -88,7 +89,7 @@
     links.forEach(li => {
         li.addEventListener("click", onLinkClick);
         let a = li.querySelector("a");
-        a.addEventListener("click", onLinkClick)
+        a.addEventListener("click", onLinkClick); // UX, for closest("li") in onLinkClick
     });
 
     // workaround to access at least the first routing level when url entered into browser's address bar 
