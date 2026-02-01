@@ -16,8 +16,9 @@
     let planRules = document.createElement("plan-rules"); // should be reused
 
     function toggleTab(e) {
-        switch (e.detail.tab) {
-            case "templates":
+        let id = e.target.id; // button id
+        switch (id) {
+            case "templatesBtn":
                 if (templatesBtn.classList.contains("active")) { // already active
                     templatesBtn.classList.remove("active");
                     tab.replaceChildren(); // remove all
@@ -27,7 +28,7 @@
                     tab.replaceChildren(planTemplates); // render planTemplates
                 }
                 break;
-            case "rules":
+            case "rulesBtn":
                 if (rulesBtn.classList.contains("active")) {
                     rulesBtn.classList.remove("active");
                 } else {
@@ -40,14 +41,6 @@
         }
     }
 
-    eventbus.addEventListener("tabs:toggle-tab", toggleTab, shadowDocument.host);
-
-    templatesBtn.addEventListener("click", function templatesBtnClicked(e) {
-        e.preventDefault();
-        eventbus.dispatchEvent(new CustomEvent("tabs:toggle-tab", { detail: { tab: "templates", target: e.target } }), shadowDocument.host);
-    });
-    rulesBtn.addEventListener("click", function rulesBtnClicked(e) {
-        e.preventDefault();
-        eventbus.dispatchEvent(new CustomEvent("tabs:toggle-tab", { detail: { tab: "rules", target: e.target } }), shadowDocument.host);
-    });
+    templatesBtn.addEventListener("click", toggleTab);
+    rulesBtn.addEventListener("click", toggleTab);
 </script>
