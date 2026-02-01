@@ -147,22 +147,14 @@
 
 
                 &:hover {
-                    border-left: 50vw solid yellow;
-                    border-right: 50vw solid yellow;
-                    border-bottom: 0px solid yellow;
+                    border-left: 50vw solid #ffff00;
+                    border-right: 50vw solid #ffff00;
+                    border-bottom: 0px solid #ffff00;
                     position: relative;
-                    opacity: .7;
                     z-index: 1;
 
                     &::after {
-                        position: absolute;
-                        border-top: 15px solid yellow;
-                        border-left: 50vw solid transparent;
-                        border-right: 50vw solid transparent;
-                        border-bottom: 0 solid transparent;
-                        content: "";
-                        display: block;
-                        top: 50px;
+                        border-top: 15px solid #ffff00;
                         z-index: 1;
                     }
 
@@ -173,7 +165,7 @@
                 }
 
                 a {
-                    color: #fdd770;
+                    color: #ffd700;
                     text-decoration: none;
                     font-weight: bold;
                     align-self: center;
@@ -189,14 +181,25 @@
 
                 &.active {
                     border-top: 15px solid transparent;
-                    border-left: 50vw solid yellow;
-                    border-right: 50vw solid yellow;
-                    border-bottom: 0px solid yellow;
+                    border-left: 50vw solid #ffd700;
+                    border-right: 50vw solid #ffd700;
+                    border-bottom: 0px solid #ffd700;
                     position: relative;
                     z-index: 1;
 
                     &::after {
-                        border-top: 15px solid yellow;
+                        border-top: 15px solid #ffd700;
+                    }
+
+                    &:hover {
+                        border-top: 15px solid transparent;
+                        border-left: 50vw solid #ffff00;
+                        border-right: 50vw solid #ffff00;
+                        border-bottom: 0px solid #ffff00;
+
+                        &::after {
+                            border-top: 15px solid #ffff00;
+                        }
                     }
 
                     a {
@@ -248,29 +251,41 @@
                     }
 
                     &:hover {
-                        border-top: 4vh solid yellow;
-                        border-right: 30px solid yellow;
-                        border-bottom: 4vh solid yellow;
+                        border-top: 4vh solid #ffff00;
+                        border-right: 30px solid #ffff00;
+                        border-bottom: 4vh solid #ffff00;
                         border-left: 30px solid transparent;
 
                         &::after {
                             border-top: 4vh solid transparent;
                             border-right: 30px solid transparent;
                             border-bottom: 4vh solid transparent;
-                            border-left: 30px solid yellow;
+                            border-left: 30px solid #ffff00;
                             top: 0;
                         }
                     }
 
                     &.active {
-                        border-top: 4vh solid yellow;
-                        border-right: 30px solid yellow;
-                        border-bottom: 4vh solid yellow;
+                        border-top: 4vh solid #ffd700;
+                        border-right: 30px solid #ffd700;
+                        border-bottom: 4vh solid #ffd700;
                         border-left: 30px solid transparent;
 
                         &::after {
-                            border-left: 30px solid yellow;
+                            border-left: 30px solid #ffd700;
                             border-top: 4vh solid transparent;
+                        }
+
+                        &:hover {
+                            border-top: 4vh solid #ffff00;
+                            border-right: 30px solid #ffff00;
+                            border-bottom: 4vh solid #ffff00;
+                            border-left: 30px solid transparent;
+
+                            &::after {
+                                border-left: 30px solid #ffff00;
+                                border-top: 4vh solid transparent;
+                            }
                         }
                     }
 

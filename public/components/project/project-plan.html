@@ -18,7 +18,7 @@
     function toggleTab(e) {
         let id = e.target.id; // button id
         switch (id) {
-            case "templatesBtn":
+            case templatesBtn.id:
                 if (templatesBtn.classList.contains("active")) { // already active
                     templatesBtn.classList.remove("active");
                     tab.replaceChildren(); // remove all
@@ -28,7 +28,7 @@
                     tab.replaceChildren(planTemplates); // render planTemplates
                 }
                 break;
-            case "rulesBtn":
+            case rulesBtn.id:
                 if (rulesBtn.classList.contains("active")) {
                     rulesBtn.classList.remove("active");
                 } else {
@@ -44,3 +44,52 @@
     templatesBtn.addEventListener("click", toggleTab);
     rulesBtn.addEventListener("click", toggleTab);
 </script>
+
+<style>
+    div.tabs {
+        background: #144000;
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+
+        button {
+            flex-basis: 100%;
+            background-color: #144000;
+            border: none;
+            color: #ffd700;
+            font-size: large;
+            padding: 6px;
+            text-decoration: none;
+            width: 100%;
+
+            &:hover {
+                background-color: #ffff00;
+                cursor: pointer;
+                color: #144000;
+            }
+
+            &.active {
+                background-color: #ffd700;
+                color: #144000;
+
+                &:hover {
+                    background-color: #ffff00;
+                }
+            }
+
+        }
+    }
+    #tab {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+    }
+
+    .sticky {
+        position: fixed;
+        width: 100%;
+        top: 61px;
+    }
+</style>
